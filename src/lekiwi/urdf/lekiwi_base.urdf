@@ -4,6 +4,7 @@
   <material name="blue"><color rgba="0 0 0.8 1"/></material>
   <material name="black"><color rgba="0 0 0 1"/></material>
 
+  <!-- 底座 -->
   <link name="base_link">
     <visual>
       <geometry><box size="0.2 0.2 0.1"/></geometry>
@@ -11,6 +12,7 @@
     </visual>
   </link>
 
+  <!-- 三个独立轮子 link -->
   <link name="left_wheel_link">
     <visual>
       <geometry><cylinder radius="0.03" length="0.02"/></geometry>
@@ -18,6 +20,21 @@
     </visual>
   </link>
 
+  <link name="rear_wheel_link">
+    <visual>
+      <geometry><cylinder radius="0.03" length="0.02"/></geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <link name="right_wheel_link">
+    <visual>
+      <geometry><cylinder radius="0.03" length="0.02"/></geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <!-- 左轮 -->
   <joint name="left_wheel_drive" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel_link"/>
@@ -25,27 +42,25 @@
     <axis xyz="0 0 1"/>
   </joint>
 
+  <!-- 后轮 -->
   <joint name="rear_wheel_drive" type="continuous">
     <parent link="base_link"/>
-    <child link="left_wheel_link"/>
+    <child link="rear_wheel_link"/>  <!-- 这里修复了 -->
     <origin xyz="0 -0.1 0" rpy="-1.5708 0 0"/> 
     <axis xyz="0 0 1"/>
   </joint>
 
+  <!-- 右轮 -->
   <joint name="right_wheel_drive" type="continuous">
     <parent link="base_link"/>
-    <child link="left_wheel_link"/>
+    <child link="right_wheel_link"/>  <!-- 这里修复了 -->
     <origin xyz="-0.1 0.1 0" rpy="-1.5708 0 0"/> 
     <axis xyz="0 0 1"/>
   </joint>
 
-
-  <!-- ✅✅✅ 这里是正确的硬件参数配置 -->
   <ros2_control name="lekiwi_hardware" type="system">
     <hardware>
       <plugin>lekiwi_controller/LekiwiBase</plugin> 
-
-      <!-- ✅✅✅ 你的参数全部在这里！ -->
       <param name="use_serial">true</param>
       <param name="serial_port">/dev/ttyACM0</param>
       <param name="serial_baud">1000000</param>

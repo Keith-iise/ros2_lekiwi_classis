@@ -35,8 +35,6 @@ namespace lekiwi_controller
         velocity_comads_.resize(num_joints, 0.0);
         // 状态变量接口
         velocity_states_.resize(num_joints, 0.0);
-        velocity_comads_.assign(num_joints, 0.0);
-        velocity_states_.assign(num_joints, 0.0);
         
         RCLCPP_INFO(rclcpp::get_logger(NodeName), "初始化 Lekiwi 成功 , 关节数量: %zu 个", num_joints);
 
@@ -104,6 +102,9 @@ namespace lekiwi_controller
 
     ReturnType LekiwiBase::read(const rclcpp::Time& /*time*/, const rclcpp::Duration& /*period*/)
     { 
+        // 先把所有状态设为 0，防止出现 NaN！
+        std::fill(velocity_states_.begin(), velocity_states_.end(), 0.0);
+
         if(use_serial_)
         {
             for(size_t i = 0; i < info_.joints.size(); i++)
@@ -115,7 +116,7 @@ namespace lekiwi_controller
                 {
                     int raw_speed = st3215_.ReadSpeed(servo_id);
                     double speed_deg_s = raw_speed * (360.0 / 4096.0);
-                    velocity_states_[i] = speed_deg_s * (M_PI / 180.0) * servo_directions_[i+start_sevro_id_];
+                    velocity_states_[i] = speed_deg_s * (M_PI / 180.0) * servo_directions_[i];
 
                 }
                 else

@@ -116,7 +116,7 @@ install(
     # scripts/test_wheel_velocity.py
     # scripts/test_safety_timeout.py
     scripts/odometry_publisher.py
-    # scripts/test_odometry.py
+    scripts/base_controller.py
   DESTINATION 
     lib/${PROJECT_NAME}
 )

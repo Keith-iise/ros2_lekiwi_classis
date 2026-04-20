@@ -77,8 +77,6 @@ class HolonomicController(Node):
         msg.data = self.current_wheel_velocities.tolist()
         self.wheel_vel_pub.publish(msg)
 
-# ... main 函数保持不变 ...
-
 def main():
     rclpy.init()
     controller = HolonomicController()

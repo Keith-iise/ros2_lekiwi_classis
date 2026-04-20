@@ -1,14 +1,11 @@
 controller_manager:
   ros__parameters:
     update_rate: 100
-    joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateBroadcaster
+    # joint_state_broadcaster:
+    #   type: joint_state_broadcaster/JointStateBroadcaster
     lekiwi_wheel_controller:
       type: velocity_controllers/JointGroupVelocityController
-    lekiwi_hardware:
-      use_serial: true
-      serial_port: /dev/ttyACM0
-      serial_baud: 1000000
+    
 
 lekiwi_wheel_controller:
   ros__parameters:
@@ -20,16 +17,6 @@ lekiwi_wheel_controller:
       - velocity
     state_interfaces:
       - velocity
-
-lekiwi:
-  ros__parameters:
-    use_serial: true
-    serial_port: "/dev/ttyACM0"
-    serial_baudrate: 1000000
-    calibration_file: "$(find lekiwi_hardware)/config/calibration.yaml"
-    joint_offsets_file: "$(find lekiwi_hardware)/config/joint_offsets.yaml"
-
-
 
 
 
