@@ -4,127 +4,80 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64MultiArray
 import numpy as np
-import math
 import time
 
 class HolonomicController(Node):
     def __init__(self):
         super().__init__('holonomic_controller')
         
+        # 参数初始化
         self.wheel_radius = self.declare_parameter('wheel_radius', 0.05).value
         self.base_radius = self.declare_parameter('base_radius', 0.125).value
         self.max_wheel_velocity = self.declare_parameter('max_wheel_velocity', 3.0).value
-        self.cmd_timeout = self.declare_parameter('cmd_timeout', 1.0).value
-        self.safety_check_rate = self.declare_parameter('safety_check_rate', 10.0).value
+        self.cmd_timeout = self.declare_parameter('cmd_timeout', 0.5).value # 建议缩短超时
+        self.ramp_rate = self.declare_parameter('ramp_rate', 5.0).value # 加速度限制
+        self.control_freq = self.declare_parameter('control_freq', 60.0).value
         
-        
-        self.cmd_vel_sub = self.create_subscription(
-            Twist,
-            '/cmd_vel',
-            self.cmd_vel_callback,
-            1)
-        
-        self.wheel_vel_pub = self.create_publisher(
-            Float64MultiArray,
-            '/lekiwi_wheel_controller/commands',
-            50)
-        
-        self.last_cmd_time = time.time()
-        self.is_stopped = False
-        self.last_wheel_velocities = np.array([0.0, 0.0, 0.0])
-        
+        # 状态变量
+        self.target_wheel_velocities = np.array([0.0, 0.0, 0.0])
         self.current_wheel_velocities = np.array([0.0, 0.0, 0.0])
-        self.wheel_velocity_ramp_rate = 5.0
+        self.last_cmd_time = time.time()
+        self.is_stopped = True # 初始状态为停止
         
+        # 运动学矩阵计算
         angles_rad = np.radians(np.array([240, 0, 120]) - 90)
-        
         self.kinematic_matrix = np.array([
             [np.cos(angle), np.sin(angle), self.base_radius] 
             for angle in angles_rad
         ])
         
-        self.safety_timer = self.create_timer(
-            1.0 / self.safety_check_rate, 
-            self.safety_check_callback
-        )
+        # 通信
+        self.cmd_vel_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_vel_callback, 10)
+        self.wheel_vel_pub = self.create_publisher(Float64MultiArray, '/lekiwi_wheel_controller/commands', 10)
         
-        self.get_logger().info(f"Holonomic controller started")
-        self.get_logger().info(f"Wheel radius: {self.wheel_radius}m, Base radius: {self.base_radius}m")
-        self.get_logger().info(f"Max wheel velocity: {self.max_wheel_velocity} rad/s")
-        self.get_logger().info(f"Command timeout: {self.cmd_timeout}s, Safety check rate: {self.safety_check_rate}Hz")
-        
+        # 唯一的控制定时器
+        self.control_timer = self.create_timer(1.0/self.control_freq, self.control_loop)
+        self.get_logger().info("Holonomic controller (Ramp Optimized) started")
+
     def cmd_vel_callback(self, msg):
         self.last_cmd_time = time.time()
+        # 运动学解算
+        body_vel = np.array([msg.linear.x, msg.linear.y, msg.angular.z])
+        target_ws = self.kinematic_matrix.dot(body_vel) / self.wheel_radius
         
-        vx = msg.linear.x
-        vy = msg.linear.y
-        omega = msg.angular.z
-        
-        body_velocity = np.array([vx, vy, omega])
-        
-        wheel_linear_velocities = self.kinematic_matrix.dot(body_velocity)
-        
-        wheel_angular_velocities = wheel_linear_velocities / self.wheel_radius
-        
-        max_computed = np.max(np.abs(wheel_angular_velocities))
-        if max_computed > self.max_wheel_velocity:
-            scale_factor = self.max_wheel_velocity / max_computed
-            wheel_angular_velocities *= scale_factor
-            self.get_logger().warn(f"Velocity scaled by {scale_factor:.3f} to respect limits")
-        
-        self.last_wheel_velocities = wheel_angular_velocities
-        
-        dt = 0.1
-        max_change = self.wheel_velocity_ramp_rate * dt
-        
-        for i in range(3):
-            target = wheel_angular_velocities[i]
-            current = self.current_wheel_velocities[i]
+        # 限速
+        max_v = np.max(np.abs(target_ws))
+        if max_v > self.max_wheel_velocity:
+            target_ws = target_ws * (self.max_wheel_velocity / max_v)
             
-            if target > current:
-                self.current_wheel_velocities[i] = min(target, current + max_change)
-            elif target < current:
-                self.current_wheel_velocities[i] = max(target, current - max_change)
+        self.target_wheel_velocities = target_ws
+        self.is_stopped = False
+
+    def control_loop(self):
+        now = time.time()
+        dt = 1.0 / self.control_freq
         
-        self.publish_wheel_velocities(self.current_wheel_velocities)
-        
-        if self.is_stopped:
-            self.is_stopped = False
-            self.get_logger().info("Safety stop cleared - new command received")
-        
-        self.get_logger().debug(
-            f"cmd_vel: vx={vx:.3f}, vy={vy:.3f}, ω={omega:.3f} -> "
-            f"wheels: [{wheel_angular_velocities[0]:.3f}, "
-            f"{wheel_angular_velocities[1]:.3f}, "
-            f"{wheel_angular_velocities[2]:.3f}] rad/s"
-        )
-    
-    def safety_check_callback(self):
-        current_time = time.time()
-        time_since_last_cmd = current_time - self.last_cmd_time
-        
-        if time_since_last_cmd > self.cmd_timeout:
+        # 1. 超时检测：如果没收到指令，目标设为 0
+        if (now - self.last_cmd_time) > self.cmd_timeout:
             if not self.is_stopped:
-                self.get_logger().warn(
-                    f"Safety timeout! No cmd_vel received for {time_since_last_cmd:.2f}s "
-                    f"(limit: {self.cmd_timeout}s) - stopping wheels"
-                )
-                
-                zero_velocities = np.array([0.0, 0.0, 0.0])
-                self.publish_wheel_velocities(zero_velocities)
-                
+                self.get_logger().debug("Safety Timeout: Stopping robot")
                 self.is_stopped = True
-                self.last_wheel_velocities = zero_velocities
+            self.target_wheel_velocities = np.array([0.0, 0.0, 0.0])
+
+        # 2. 平滑滤波 (Ramp)
+        diff = self.target_wheel_velocities - self.current_wheel_velocities
+        max_change = self.ramp_rate * dt
         
-        elif self.is_stopped:
-            zero_velocities = np.array([0.0, 0.0, 0.0])
-            self.current_wheel_velocities = zero_velocities
-            self.publish_wheel_velocities(zero_velocities)
-    
-    def publish_wheel_velocities(self, wheel_angular_velocities):
-        wheel_cmd = Float64MultiArray()
-        wheel_cmd.data = wheel_angular_velocities.tolist()
-        self.wheel_vel_pub.publish(wheel_cmd)
+        # clip 限制步进大小
+        step = np.clip(diff, -max_change, max_change)
+        self.current_wheel_velocities += step
+        
+        # 3. 发布消息
+        msg = Float64MultiArray()
+        msg.data = self.current_wheel_velocities.tolist()
+        self.wheel_vel_pub.publish(msg)
+
+# ... main 函数保持不变 ...
 
 def main():
     rclpy.init()
