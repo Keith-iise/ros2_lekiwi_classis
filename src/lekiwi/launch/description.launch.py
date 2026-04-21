@@ -25,10 +25,9 @@ def generate_launch_description():
 
 
     joint_state_publisher = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher',
-        parameters=[{'use_gui': False}],  # True 打开滑块调关节角度
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui'
     )
 
 

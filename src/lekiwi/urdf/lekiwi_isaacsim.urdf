@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="lekiwi">
-    <material name="mobile_base_material">
+  <material name="mobile_base_material">
         <color rgba="0.7 0.7 0.7 1.0" />
     </material>
 
@@ -717,30 +717,5 @@
         <child link="pillar_standoff_5" />
   </joint>
 
-
-
-  <ros2_control name="lekiwi_hardware" type="system">
-    <hardware>
-      <plugin>lekiwi_controller/LekiwiBase</plugin> 
-      <param name="use_serial">true</param>
-      <param name="serial_port">/dev/ttyACM0</param>
-      <param name="serial_baud">1000000</param>
-    </hardware>
-
-    <joint name="left_wheel_drive">
-      <command_interface name="velocity"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <joint name="rear_wheel_drive">
-      <command_interface name="velocity"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <joint name="right_wheel_drive">
-      <command_interface name="velocity"/>
-      <state_interface name="velocity"/>
-    </joint>
-  </ros2_control>
 
 </robot>

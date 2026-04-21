@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="lekiwi">
-    <material name="mobile_base_material">
+  <material name="mobile_base_material">
         <color rgba="0.7 0.7 0.7 1.0" />
     </material>
 
@@ -41,7 +41,7 @@
             <origin xyz="0.0 -6.430841866638185e-19 0.006999999999999993" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer2_v3.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer2_v3.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="top_plate_material" />
@@ -50,7 +50,7 @@
             <origin xyz="0.0 -6.430841866638185e-19 0.006999999999999993" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer2_v3.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer2_v3.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -62,7 +62,7 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer1_v5.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer1_v5.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="mobile_base_material" />
@@ -71,13 +71,13 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer1_v5.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/base_plate_layer1_v5.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="Omni_Directional_Wheel_Single_Body_v1_2">
+    <link name="4_Omni_Directional_Wheel_Single_Body_v1_2">
         <inertial>
             <origin xyz="-9.805110055688405e-08 0.015875012090586064 -9.143534264177689e-08"
                 rpy="0.0 -0.0 0.0" />
@@ -86,28 +86,28 @@
                 izz="0.0010936140861738455" ixy="-4.1677764986761383e-10"
                 iyz="8.101180750536008e-12" ixz="-6.83978047246436e-09" />
         </inertial>
-        <visual name="Omni_Directional_Wheel_Single_Body_v1_2_visual">
+        <visual name="4_Omni_Directional_Wheel_Single_Body_v1_2_visual">
             <origin xyz="7.450578487500081e-12 0.015874999999999986 6.661338147750939e-18"
                 rpy="1.5707963267948966 0.26179938779914924 -1.0046485565123013e-33" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/Omni_Directional_Wheel_Single_Body_v1_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/4_Omni_Directional_Wheel_Single_Body_v1_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheel_material" />
         </visual>
-        <collision name="Omni_Directional_Wheel_Single_Body_v1_2_collision">
+        <collision name="4_Omni_Directional_Wheel_Single_Body_v1_2_collision">
             <origin xyz="7.450578487500081e-12 0.015874999999999986 6.661338147750939e-18"
                 rpy="1.5707963267948966 0.26179938779914924 -1.0046485565123013e-33" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/Omni_Directional_Wheel_Single_Body_v1_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/4_Omni_Directional_Wheel_Single_Body_v1_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="Omni_Directional_Wheel_Single_Body_v1_1">
+    <link name="4_Omni_Directional_Wheel_Single_Body_v1_1">
         <inertial>
             <origin xyz="0.01374810955311503 -0.007937600014431929 -7.105207897817323e-08"
                 rpy="0.0 -0.0 0.0" />
@@ -116,28 +116,28 @@
                 izz="0.0010936200374455259" ixy="-0.0003404354598931583"
                 iyz="-4.340089721204671e-09" ixz="-2.9730281413814508e-09" />
         </inertial>
-        <visual name="Omni_Directional_Wheel_Single_Body_v1_1_visual">
+        <visual name="4_Omni_Directional_Wheel_Single_Body_v1_1_visual">
             <origin xyz="0.013748155931950041 -0.007937495502761073 -2.2204460492503132e-17"
                 rpy="-0.5235987755982988 -1.5707963267948963 0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/Omni_Directional_Wheel_Single_Body_v1_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/4_Omni_Directional_Wheel_Single_Body_v1_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheel_material" />
         </visual>
-        <collision name="Omni_Directional_Wheel_Single_Body_v1_1_collision">
+        <collision name="4_Omni_Directional_Wheel_Single_Body_v1_1_collision">
             <origin xyz="0.013748155931950041 -0.007937495502761073 -2.2204460492503132e-17"
                 rpy="-0.5235987755982988 -1.5707963267948963 0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/Omni_Directional_Wheel_Single_Body_v1_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/4_Omni_Directional_Wheel_Single_Body_v1_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
   
-    <link name="Omni_Directional_Wheel_Single_Body_v1">
+    <link name="4_Omni_Directional_Wheel_Single_Body_v1">
         <inertial>
             <origin xyz="-0.013748211804798878 -0.007937431357202592 -9.805855119449092e-08"
                 rpy="0.0 1.0947644252537633e-47 6.865185903486632e-63" />
@@ -146,22 +146,22 @@
                 izz="0.001093616799300322" ixy="0.00034043401176330265" iyz="6.131812470911233e-09"
                 ixz="-3.0589502042488444e-09" />
         </inertial>
-        <visual name="Omni_Directional_Wheel_Single_Body_v1_visual">
+        <visual name="4_Omni_Directional_Wheel_Single_Body_v1_visual">
             <origin xyz="-0.013748155616372878 -0.007937504497239081 -5.773159728050814e-17"
                 rpy="1.5707963267948974 -1.3089969389957468 2.094395102393195" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/Omni_Directional_Wheel_Single_Body_v1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/4_Omni_Directional_Wheel_Single_Body_v1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheel_material" />
         </visual>
-        <collision name="Omni_Directional_Wheel_Single_Body_v1_collision">
+        <collision name="4_Omni_Directional_Wheel_Single_Body_v1_collision">
             <origin xyz="-0.013748155616372878 -0.007937504497239081 -5.773159728050814e-17"
                 rpy="1.5707963267948974 -1.3089969389957468 2.094395102393195" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/Omni_Directional_Wheel_Single_Body_v1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/4_Omni_Directional_Wheel_Single_Body_v1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -181,7 +181,7 @@
                 rpy="-3.141592653589793 -1.0340504353649803e-16 -2.6179938779914944" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="motor_mount_material" />
@@ -191,7 +191,7 @@
                 rpy="-3.141592653589793 -1.0340504353649803e-16 -2.6179938779914944" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -211,7 +211,7 @@
                 rpy="0.0 -0.0 0.5235987755982988" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="motor_mount_material" />
@@ -221,7 +221,7 @@
                 rpy="0.0 -0.0 0.5235987755982988" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -241,7 +241,7 @@
                 rpy="3.141592653589793 -0.0 1.5707963267948966" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="motor_mount_material" />
@@ -251,7 +251,7 @@
                 rpy="3.141592653589793 -0.0 1.5707963267948966" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/drive_motor_mount_v11_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -271,7 +271,7 @@
                 rpy="-3.141592653589793 -1.5707963267948966 0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="servo_material" />
@@ -281,7 +281,7 @@
                 rpy="-3.141592653589793 -1.5707963267948966 0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -301,7 +301,7 @@
                 rpy="-1.570796326794896 0.5235987755982991 -1.5707963267948968" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="servo_material" />
@@ -311,7 +311,7 @@
                 rpy="-1.570796326794896 0.5235987755982991 -1.5707963267948968" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -331,7 +331,7 @@
                 rpy="1.5707963267948968 0.523598775598299 1.5707963267948972" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="servo_material" />
@@ -341,13 +341,13 @@
                 rpy="1.5707963267948968 0.523598775598299 1.5707963267948972" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/ST3215_Servo_Motor_v1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="pillar_standoff">
+    <link name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff">
         <inertial>
             <origin xyz="2.1864399078485972e-14 1.2010287410706806e-09 -0.02499999330297986"
                 rpy="0.0 -0.0 0.0" />
@@ -356,26 +356,26 @@
                 izz="1.837396493115053e-08" ixy="-3.0209076389532564e-20"
                 iyz="-9.149560120561933e-14" ixz="-2.6974127807751317e-18" />
         </inertial>
-        <visual name="pillar_standoff_visual">
+        <visual name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_visual">
             <origin xyz="0.0 -1.3010426069826053e-18 -0.025" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="arm_material" />
         </visual>
-        <collision name="pillar_standoff_collision">
+        <collision name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_collision">
             <origin xyz="0.0 -1.3010426069826053e-18 -0.025" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="pillar_standoff_1">
+    <link name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_1">
         <inertial>
             <origin xyz="2.1866952693017084e-14 1.201028743125221e-09 -0.02499999330297986"
                 rpy="0.0 -0.0 0.0" />
@@ -384,26 +384,26 @@
                 izz="1.837396493115063e-08" ixy="-2.879912020664621e-20"
                 iyz="-9.149560026045249e-14" ixz="-2.6969529040576923e-18" />
         </inertial>
-        <visual name="pillar_standoff_1_visual">
+        <visual name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_1_visual">
             <origin xyz="0.0 0.0 -0.025" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="arm_material" />
         </visual>
-        <collision name="pillar_standoff_1_collision">
+        <collision name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_1_collision">
             <origin xyz="0.0 0.0 -0.025" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="pillar_standoff_2">
+    <link name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_2">
         <inertial>
             <origin xyz="2.1866952693017084e-14 1.201028743125221e-09 -0.02481596290467566"
                 rpy="0.0 -0.0 0.0" />
@@ -412,26 +412,26 @@
                 izz="1.837396493115063e-08" ixy="-3.3881317890172014e-20"
                 iyz="-9.149560068396896e-14" ixz="-2.6969529040576923e-18" />
         </inertial>
-        <visual name="pillar_standoff_2_visual">
+        <visual name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_2_visual">
             <origin xyz="0.0 0.0 -0.0248159696016958" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="arm_material" />
         </visual>
-        <collision name="pillar_standoff_2_collision">
+        <collision name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_2_collision">
             <origin xyz="0.0 0.0 -0.0248159696016958" rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="pillar_standoff_3">
+    <link name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_3">
         <inertial>
             <origin xyz="-3.784219515523546e-10 -7.23282504999645e-10 -0.024999993302979855"
                 rpy="0.0 -0.0 0.0" />
@@ -440,28 +440,28 @@
                 izz="1.8373964931164182e-08" ixy="-2.710505431213761e-20"
                 iyz="-9.149560110748543e-14" ixz="-2.6969529040576923e-18" />
         </inertial>
-        <visual name="pillar_standoff_3_visual">
+        <visual name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_3_visual">
             <origin xyz="-3.784438185050476e-10 -1.924311248124866e-09 -0.02499999999999999"
                 rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_3.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_3.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="arm_material" />
         </visual>
-        <collision name="pillar_standoff_3_collision">
+        <collision name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_3_collision">
             <origin xyz="-3.784438185050476e-10 -1.924311248124866e-09 -0.02499999999999999"
                 rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_3.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_3.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="pillar_standoff_4">
+    <link name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_4">
         <inertial>
             <origin xyz="3.784657565120142e-10 3.1253399868091947e-09 -0.02499999330297986"
                 rpy="0.0 -0.0 0.0" />
@@ -470,28 +470,28 @@
                 izz="1.8373964931164182e-08" ixy="-2.710505431213761e-20"
                 iyz="-9.149560110748543e-14" ixz="-2.6969529040576923e-18" />
         </inertial>
-        <visual name="pillar_standoff_4_visual">
+        <visual name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_4_visual">
             <origin xyz="3.784438895593212e-10 1.924311243683974e-09 -0.025"
                 rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_4.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_4.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="arm_material" />
         </visual>
-        <collision name="pillar_standoff_4_collision">
+        <collision name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_4_collision">
             <origin xyz="3.784438895593212e-10 1.924311243683974e-09 -0.025"
                 rpy="3.141592653589793 -0.0 0.0" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_4.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_4.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-    <link name="pillar_standoff_5">
+    <link name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_5">
             <inertial>
                 <origin xyz="2.1862511800918584e-14 1.2010287342434368e-09 -0.02499999330297986"
                     rpy="0.0 -0.0 0.0" />
@@ -500,20 +500,20 @@
                     izz="1.837396493115063e-08" ixy="-3.218725199566341e-20"
                     iyz="-9.149560110748543e-14" ixz="-2.6969529040576923e-18" />
             </inertial>
-            <visual name="pillar_standoff_5_visual">
+            <visual name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_5_visual">
                 <origin xyz="0.0 0.0 -0.025" rpy="3.141592653589793 -0.0 0.0" />
                 <geometry>
                     <mesh
-                        filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_5.stl"
+                        filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_5.stl"
                         scale="0.001 0.001 0.001" />
                 </geometry>
                 <material name="arm_material" />
             </visual>
-            <collision name="pillar_standoff_5_collision">
+            <collision name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_5_collision">
                 <origin xyz="0.0 0.0 -0.025" rpy="3.141592653589793 -0.0 0.0" />
                 <geometry>
                     <mesh
-                        filename="package://lekiwi/models/lekiwi_mobile_base/meshes/pillar_standoff_5.stl"
+                        filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_5.stl"
                         scale="0.001 0.001 0.001" />
                 </geometry>
             </collision>
@@ -533,7 +533,7 @@
                 rpy="3.141592653589793 6.887535064975403e-49 1.8369701987210297e-16" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheel_mount_material" />
@@ -543,7 +543,7 @@
                 rpy="3.141592653589793 6.887535064975403e-49 1.8369701987210297e-16" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_2.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_2.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -563,7 +563,7 @@
                 rpy="1.047197551196598 -1.1102230246251563e-16 1.5707963267948968" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheel_mount_material" />
@@ -573,7 +573,7 @@
                 rpy="1.047197551196598 -1.1102230246251563e-16 1.5707963267948968" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_1.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5_1.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -593,7 +593,7 @@
                 rpy="-1.0471975511965974 5.537547822683577e-16 1.5707963267948968" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheel_mount_material" />
@@ -603,7 +603,7 @@
                 rpy="-1.0471975511965974 5.537547822683577e-16 1.5707963267948968" />
             <geometry>
                 <mesh
-                    filename="package://lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5.stl"
+                    filename="file:///home/synapath/workspase/ros2_lekiwi_classis/src/lekiwi/models/lekiwi_mobile_base/meshes/omni_wheel_mount_v5.stl"
                     scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
@@ -623,7 +623,7 @@
     <joint name="omni_wheel_mount_v5_2_Rigid_61" type="fixed">
         <origin xyz="0.0 0.0 -0.007174999999999994" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="omni_wheel_mount_v5_2" />
-        <child link="Omni_Directional_Wheel_Single_Body_v1_2" />
+        <child link="4_Omni_Directional_Wheel_Single_Body_v1_2" />
     </joint>
     <joint name="rear_wheel_drive" type="continuous">
         <origin xyz="0.010249999999999999 -0.035199999999999995 -0.03275"
@@ -654,7 +654,7 @@
         <origin xyz="0.0062137300000000015 0.0 0.0035875000000000056"
             rpy="-1.5707963267948966 5.551115123125765e-17 -1.8816263559048997e-48" />
         <parent link="omni_wheel_mount_v5_1" />
-        <child link="Omni_Directional_Wheel_Single_Body_v1_1" />
+        <child link="4_Omni_Directional_Wheel_Single_Body_v1_1" />
     </joint>
     <joint name="base_plate_layer1_v5_baseplate2left_mount" type="fixed">
         <origin xyz="-0.05928203 0.057320510000000005 0.0" rpy="3.141592653589793 -0.0 0.0" />
@@ -678,69 +678,45 @@
         <origin xyz="-0.0062137300000000015 0.0 0.003587499999999997"
             rpy="-1.5707963267948966 5.551115123125802e-17 4.930380657631324e-32" />
         <parent link="omni_wheel_mount_v5" />
-        <child link="Omni_Directional_Wheel_Single_Body_v1" />
+        <child link="4_Omni_Directional_Wheel_Single_Body_v1" />
     </joint>
 
-    <joint name="pillar_standoff_Rigid_21" type="fixed">
+    <joint name="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_Rigid_21" type="fixed">
         <origin xyz="0.0 0.0 -0.05" rpy="3.141592653589793 -0.0 0.0" />
-        <parent link="pillar_standoff" />
+        <parent link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff" />
         <child link="base_plate_layer2_v3" />
     </joint>
     <joint name="base_plate_layer1_v5_Rigid_20" type="fixed">
         <origin xyz="0.0 0.0 0.0" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="pillar_standoff" />
+        <child link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff" />
     </joint>
     <joint name="base_plate_layer1_v5_Rigid_70" type="fixed">
         <origin xyz="-0.1 -0.02 0.0" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="pillar_standoff_1" />
+        <child link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_1" />
     </joint>
     <joint name="base_plate_layer1_v5_Rigid_69" type="fixed">
         <origin xyz="0.1 -0.02 0.0" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="pillar_standoff_2" />
+        <child link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_2" />
     </joint>
     <joint name="base_plate_layer1_v5_Rigid_32" type="fixed">
         <origin xyz="-0.09660254 0.032679490000000005 0.0" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="pillar_standoff_3" />
+        <child link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_3" />
     </joint>
     <joint name="base_plate_layer1_v5_Rigid_31" type="fixed">
         <origin xyz="0.07660254 0.06732051 0.0" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="pillar_standoff_4" />
+        <child link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_4" />
     </joint>
     <joint name="base_plate_layer1_v5_Rigid_30" type="fixed">
         <origin xyz="0.02 -0.1 0.0" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="pillar_standoff_5" />
+        <child link="94868A713_NO_THREADS_Female_Threaded_Hex_Standoff_5" />
   </joint>
 
 
-
-  <ros2_control name="lekiwi_hardware" type="system">
-    <hardware>
-      <plugin>lekiwi_controller/LekiwiBase</plugin> 
-      <param name="use_serial">true</param>
-      <param name="serial_port">/dev/ttyACM0</param>
-      <param name="serial_baud">1000000</param>
-    </hardware>
-
-    <joint name="left_wheel_drive">
-      <command_interface name="velocity"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <joint name="rear_wheel_drive">
-      <command_interface name="velocity"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <joint name="right_wheel_drive">
-      <command_interface name="velocity"/>
-      <state_interface name="velocity"/>
-    </joint>
-  </ros2_control>
 
 </robot>
